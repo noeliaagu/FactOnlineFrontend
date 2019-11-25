@@ -1,0 +1,75 @@
+<div class="container fluid">
+
+  <app-fact-form #formulario></app-fact-form>  
+
+  <br><br>
+  <h4 class="text-muted">Facturas emitidas:</h4> <br>
+
+  <div class="table-responsive">
+
+    <table class="table table-bordered">
+      <tr>
+        <th scope="col" style="text-align: center;">Id</th>
+        <th scope="col" style="text-align: center;">Fecha</th>
+        <th scope="col" style="text-align: center;">Tipo</th>
+        <th scope="col" style="text-align: center;">Punto</th>
+        <th scope="col" style="text-align: center;">Número</th>
+        <th scope="col" style="text-align: center;">Cliente</th>
+        <th scope="col" style="text-align: center;">Total</th>
+      </tr>
+
+      <tr *ngFor="let dat of facturaRepoService.listado">
+        <td style="text-align: center;">{{ dat.id }}</td>
+        <td style="text-align: center;">{{ dat.fecha }}</td>
+        <td style="text-align: center;">{{ dat.tipo }}</td>
+        <td style="text-align: center;">{{ dat.pto }}</td>
+        <td style="text-align: center;">{{ dat.numero }}</td>
+        <td style="text-align: center;">
+          <div *ngFor="let cl of formulario.clienteRepoService.listado">
+            <span *ngIf="cl.id == dat.clienteId">{{ cl.nombre }}</span>
+          </div>
+        </td>
+        <td style="text-align: center;">{{ dat.total }}</td>
+
+        &nbsp;
+        <button class="btn btn-danger btn-sm" (click)="borrar(dat.id)">
+          Eliminar</button>&nbsp;
+
+        <button class="btn btn-success btn-sm"
+          onclick="window.location.href='/facturas#itemsFactura';document.getElementById('itm').style.display = 'block';"
+          (click)="obtener(dat.id)">Detalle</button>
+
+      </tr>
+    </table>
+  </div>
+
+  <div id="itm" style="display: none;" class="col-lg12">
+  <hr /><br>
+  
+  <h5>Detalle de Factura: ID: {{ variable.id }} -
+      Numero: {{ variable.numero }} </h5>
+  
+
+
+  <table class="table table striped">
+    <tr style="background-color: rgb(233, 231, 231);">
+      <td>Cant</td>
+      <td>Código</td>
+      <td>Descripción</td>
+      <td>Precio</td>
+      <td>Iva</td>
+      <td>SubTotal</td>
+    </tr>
+            <tr *ngFor="let itm of variable.items">
+              <td>{{ itm.cant }}</td>
+              <td>{{ itm.codigo }}</td>
+              <td>{{ itm.descripcion }} </td>
+              <td>{{ itm.precio }}</td>
+              <td>{{ itm.iva }}</td>
+              <td>{{ itm.subtotal }} </td>
+            </tr>
+          </table>
+          
+      </div>
+
+</div>

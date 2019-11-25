@@ -1,0 +1,30 @@
+<div class="container fluid">
+
+<app-prod-form #formulario></app-prod-form>
+<br><br><h4 class="text-muted">Listado de Productos:</h4> <br>
+
+<div class="table-responsive">
+<table class="table table-bordered" >
+  <tr >
+    <th scope="col" style="text-align: center;"> Id</th>
+    <th scope="col" style="text-align: center;"> Código</th>
+    <th scope="col" style="text-align: center;"> Descripción</th>
+    <th scope="col" style="text-align: center;"> Precio Unitario</th>    
+  </tr>
+
+  <tr  *ngFor="let producto of productoRepoService.listado">
+    <th scope="row" (click)="obtener(producto.id)" style="text-align: center;"> {{producto.id}} </th>
+    <td style="text-align: center;">{{producto.codigo}}</td>
+    <td style="text-align: center;">{{producto.descripcion}}</td>
+    <td style="text-align: center;">{{producto.precio}}</td>
+    
+      &nbsp; <button class="btn btn-danger btn-sm" (click)="eliminar(producto.id)">Eliminar</button>&nbsp;
+      <button class="btn btn-success btn-sm" (click)="formulario.editar(producto.id)">Editar</button>
+    
+</tr>
+</table></div>
+
+
+</div>
+
+

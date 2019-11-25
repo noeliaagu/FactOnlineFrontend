@@ -1,0 +1,36 @@
+<br><h2>Clientes</h2><br>
+    
+<form (ngSubmit)='guardar();'>        
+
+    <div class="form-group row">
+        <label class="col-sm-1 col-form-label">Nombre</label>
+        <div class="col-sm-3">
+            <input type="text" required="required" name="nombre" id="nombre"
+            [(ngModel)]="nuevo.nombre"   class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group row">
+          <label class="col-sm-1 col-form-label">Dirección</label>
+          <div class="col-sm-3">
+              <input type="text" required="required" name="direccion" id="direccion"
+           [(ngModel)]="nuevo.direccion"   class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label">CUIT</label>
+            <div class="col-sm-3">
+                <input type="text" required="required" maxlength="13" name="cuit" id="cuit"
+                [(ngModel)]="nuevo.cuit"  class="form-control">
+            </div>
+          </div>      
+      
+      <div class="input-group mb-3">
+        <button class="btn btn-primary">Guardar</button>
+      </div>      
+          
+     </form>
+     
+     <button class="btn btn-outline-secondary btn-sm" (click)="limpiar();">Limpiar Formulario</button>
+     <br>

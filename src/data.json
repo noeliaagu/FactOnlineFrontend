@@ -1,0 +1,210 @@
+{
+  "producto": [
+    {
+      "id": 1,
+      "codigo": "158A",
+      "descripcion": "Raqueta Tenis",
+      "precio": "254"
+    },
+    {
+      "id": 2,
+      "codigo": "998O",
+      "descripcion": "Pelota Voley",
+      "precio": "582"
+    },
+    {
+      "id": 3,
+      "codigo": "58E1",
+      "descripcion": "Pelota Basquet",
+      "precio": "254"
+    },
+    {
+      "id": 4,
+      "codigo": "457H1",
+      "descripcion": "Palo Hockey",
+      "precio": "547"
+    }
+  ],
+  "cliente": [
+    {
+      "id": 3,
+      "nombre": "Noelia Agüero",
+      "direccion": "Urquiza 84",
+      "cuit": "20346704542"
+    },
+    {
+      "id": 1,
+      "nombre": "Juan Perez",
+      "direccion": "Ramirez 1502",
+      "cuit": "20357666511"
+    },
+    {
+      "id": 4,
+      "nombre": "Raul Alvarez",
+      "direccion": "Patagonia 123",
+      "cuit": "206487562"
+    },
+    {
+      "id": 2,
+      "nombre": "Marta Sosa",
+      "direccion": "Satler 123",
+      "cuit": "27621452222"
+    }
+  ],
+  "factura": [
+    {
+      "id": 1,
+      "tipo": "A",
+      "numero": "458",
+      "fecha": "13/11/2019",
+      "pto": "Punto 2",
+      "clienteId": "1",
+      "total": 2447,
+      "items": [
+        {
+          "id": 1,
+          "idfact": 1,
+          "idprod": "4",
+          "cant": 2,
+          "codigo": "457H1",
+          "descripcion": "Palo Hockey",
+          "precio": "549",
+          "iva": 21,
+          "subtotal": 1098
+        },
+        {
+          "id": 2,
+          "idfact": 1,
+          "idprod": "2",
+          "cant": 1,
+          "codigo": "998O",
+          "descripcion": "Pelota Voley",
+          "precio": "587",
+          "iva": 21,
+          "subtotal": 587
+        },
+        {
+          "id": 3,
+          "idfact": 1,
+          "idprod": "1",
+          "cant": 3,
+          "codigo": "158A",
+          "descripcion": "Raqueta Tenis",
+          "precio": "254",
+          "iva": 21,
+          "subtotal": 762
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "tipo": "C",
+      "numero": "10",
+      "fecha": "13/11/2019",
+      "pto": "Punto 2",
+      "clienteId": "2",
+      "total": 4392,
+      "items": [
+        {
+          "id": 1,
+          "idfact": 2,
+          "idprod": "4",
+          "cant": 8,
+          "codigo": "457H1",
+          "descripcion": "Palo Hockey",
+          "precio": "549",
+          "iva": 21,
+          "subtotal": 4392
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "tipo": "B",
+      "numero": "85",
+      "fecha": "10/11/2019",
+      "pto": "Punto 1",
+      "clienteId": "4",
+      "total": 1977,
+      "items": [
+        {
+          "id": 1,
+          "idfact": 3,
+          "idprod": "3",
+          "cant": 1,
+          "codigo": "58E1",
+          "descripcion": "Pelota Basquet",
+          "precio": "254",
+          "iva": 21,
+          "subtotal": 254
+        },
+        {
+          "id": 2,
+          "idfact": 3,
+          "idprod": "4",
+          "cant": 1,
+          "codigo": "457H1",
+          "descripcion": "Palo Hockey",
+          "precio": "549",
+          "iva": 21,
+          "subtotal": 549
+        },
+        {
+          "id": 3,
+          "idfact": 3,
+          "idprod": "2",
+          "cant": 2,
+          "codigo": "998O",
+          "descripcion": "Pelota Voley",
+          "precio": "587",
+          "iva": 21,
+          "subtotal": 1174
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "tipo": "C",
+      "numero": "14",
+      "fecha": "10/11/2019",
+      "pto": "Punto 3",
+      "clienteId": "3",
+      "total": 587,
+      "items": [
+        {
+          "id": 1,
+          "idfact": 4,
+          "idprod": "2",
+          "cant": 1,
+          "codigo": "998O",
+          "descripcion": "Pelota Voley",
+          "precio": "587",
+          "iva": 21,
+          "subtotal": 587
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "tipo": "A",
+      "numero": "140",
+      "fecha": "13/11/2019",
+      "pto": "Punto 2",
+      "clienteId": "2",
+      "total": 762,
+      "items": [
+        {
+          "id": 1,
+          "idfact": 5,
+          "idprod": "3",
+          "cant": 3,
+          "codigo": "58E1",
+          "descripcion": "Pelota Basquet",
+          "precio": "254",
+          "iva": 21,
+          "subtotal": 762
+        }
+      ]
+    }
+  ]
+}

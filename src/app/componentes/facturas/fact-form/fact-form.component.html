@@ -1,0 +1,124 @@
+<br />
+<h2>Emitir Factura
+</h2><br>
+
+<form (ngSubmit)="emitir();">
+
+
+  <div class="form-group row">
+
+    <label class="col-sm-1 col-form-label">Fecha</label>
+    <div class="col-sm-2">
+      <input type="text" style="max-width: 141px;" name="fecha" id="f" [(ngModel)]="nuevo.fecha" class="form-control" />
+    </div>
+
+    <label class="col-sm-1 col-form-label">Tipo</label>
+    <div class="col-sm-2">
+      <select name="tipo" id="tipo" title="Tipo Factura" style="max-width: 85px;" [(ngModel)]="nuevo.tipo"
+        class="form-control">
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+      </select>
+    </div>
+
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-1 col-form-label">Punto</label>
+    <div class="col-sm-2">
+      <select name="pto" id="pto" title="Pto. de Venta" [(ngModel)]="nuevo.pto" class="form-control">
+        <option value="Punto 1">Punto 1</option>
+        <option value="Punto 2">Punto 2</option>
+        <option value="Punto 3">Punto 3</option>
+      </select>
+    </div>
+
+    <label class="col-sm-1 col-form-label">Numero</label>
+    <div class="col-sm-2">
+      <input type="text" required="required" name="numero" id="numero" [(ngModel)]="nuevo.numero"
+        style="max-width: 70px;" class="form-control" />
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-1 col-form-label">Cliente</label>
+    <div class="col-sm-2">
+      <select name="cliente" id="cliente" title="Cliente" [(ngModel)]="nuevo.clienteId" style="min-width: 100px;"
+        class="form-control">
+        <option selected value="0">Seleccione</option>
+        <option *ngFor="let cl of clienteRepoService.listado" value="{{ cl.id }}">{{ cl.nombre }}</option>
+      </select>
+    </div>
+
+    <label class="col-sm-1 col-form-label">Cantidad</label>
+    <div class="col-sm-2">
+      <input type="number" name="cantidad" min="1" max="100" [(ngModel)]="nvitm.cant">
+
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-1 col-form-label">Producto</label>
+    <div class="col-sm-3">
+
+
+
+      <select name="producto" id="producto" title="Producto" [(ngModel)]="nvitm.idprod"
+        (ngModelChange)="valorID = nvitm.idprod" class="form-control" style="max-width:200px;">
+        <option value="0">Seleccione</option>
+        <option *ngFor="let pd of productoRepoService.listado" value="{{ pd.id }}" (click)="valorID = pd.id">
+          {{ pd.descripcion }}</option>
+      </select>
+    </div>
+
+    <span class="btn btn-outline-primary" (click)="agregarItem();" style="cursor: pointer;">Agregar Item</span>
+
+
+    &nbsp;&nbsp;
+    <button class="btn btn-success">
+      Grabar Factura
+    </button>
+
+  </div>
+
+</form>
+
+<br>
+<div class="table-responsive">
+  <table class="table table striped">
+    <tr>
+      <th scope="col"> Cantidad </th>
+      <th scope="col"> Código </th>
+      <th scope="col"> Descripción </th>
+      <th scope="col"> Precio </th>
+      <th scope="col"> Iva </th>
+      <th scope="col"> SubTotal </th>
+
+    </tr>
+
+    <tr *ngFor="let it of nuevo.items">
+      <td>{{ it.cant }}</td>
+      <td>{{ it.codigo }}</td>
+      <td>{{ it.descripcion }}</td>
+      <td>{{ it.precio }}</td>
+      <td>{{ it.iva }}</td>
+      <td>{{ it.subtotal }}</td>
+
+      &nbsp; <button class="btn btn-danger btn-sm" (click)="borrarItem(it.id)">Eliminar</button>&nbsp;
+
+    </tr>
+
+
+    <tr>
+      <td> <strong>TOTAL</strong> </td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><strong>{{nuevo.total}}</strong></td>
+
+    </tr>
+
+  </table>
+</div>

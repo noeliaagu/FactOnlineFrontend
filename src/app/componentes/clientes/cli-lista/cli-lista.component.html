@@ -1,0 +1,35 @@
+<div class="container fluid">
+
+        <app-cli-form #formularioC></app-cli-form>
+        <br><br><h4 class="text-muted">Listado de Clientes:</h4> <br>
+        
+        <div class="table-responsive">
+     
+
+        <table class="table table-bordered" >
+          
+            <tr>
+                <th scope="col" style="text-align: center;"> ID</th>
+             <th scope="col" style="text-align: center;">Nombre</th>
+             <th scope="col" style="text-align: center;">Direccióon</th>
+             <th scope="col" style="text-align: center;">CUIT</th>            
+          </tr>
+
+          <tr  *ngFor="let cliente of clienteRepoService.listado">
+            <th style="text-align: center;" scope="row">{{cliente.id}} </th>
+            <td style="text-align: center;">{{cliente.nombre}}</td>
+            <td style="text-align: center;">{{cliente.direccion}}</td>
+            <td style="text-align: center;">{{cliente.cuit}}</td>
+            
+            &nbsp; <button class="btn btn-danger btn-sm" (click)="eliminar(cliente.id)">Eliminar</button>&nbsp;
+              <button class="btn btn-success btn-sm" (click)="formularioC.editar(cliente.id)">Editar</button>
+            
+        </tr>
+        
+        </table>
+
+      </div>
+    </div>
+    
+
+    
