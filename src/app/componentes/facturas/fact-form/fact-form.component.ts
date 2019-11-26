@@ -14,6 +14,7 @@ export class FactFormComponent implements OnInit {
 
   listaItems: Item[] = [];
     nuevo: Factura = new Factura(0, 'A', this.getFecha(), this.facturaRepoService.numFac, '00001', 0 , 0,  this.listaItems );
+    
     nvitm: Item = new Item(0, 0, 0 , 0 , '0', ' ', 0, 0, 0);
     
     edicion: boolean = false;

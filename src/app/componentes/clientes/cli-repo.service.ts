@@ -12,27 +12,27 @@ export class CliRepoService {
   constructor(private httpClient: HttpClient) {}
 
   getAll() {
-    this.httpClient.get<Cliente[]>('http://localhost:3000/cliente')
+    this.httpClient.get<Cliente[]>('http://localhost:3000/clientes')
     .subscribe(
       (data) => this.listado = data.sort((a, b) => a.nombre.localeCompare(b.nombre))
     );
   }
 
   getById(id: number) {
-    return this.httpClient.get<Cliente>(`http://localhost:3000/cliente/${id}`);
+    return this.httpClient.get<Cliente>(`http://localhost:3000/clientes/${id}`);
   }
 
   agregar(n: Cliente) {
-    return this.httpClient.post('http://localhost:3000/cliente', n );
+    return this.httpClient.post('http://localhost:3000/clientes', n );
   }
 
   eliminar(id: number) {
     if (confirm('Desea eliminar el cliente?')) {
-      return this.httpClient.delete(`http://localhost:3000/cliente/${id}`);
+      return this.httpClient.delete(`http://localhost:3000/clientes/${id}`);
     }
   }
 
   actualizar(nn: Cliente) {
-    return this.httpClient.put(`http://localhost:3000/cliente/${nn.id}`, nn);
+    return this.httpClient.put(`http://localhost:3000/clientes/${nn.id}`, nn);
   }
 }

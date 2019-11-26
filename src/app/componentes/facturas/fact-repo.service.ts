@@ -13,7 +13,7 @@ export class FactRepoService {
   constructor(private httpClient: HttpClient) {}
 
   getAll() {
-    this.httpClient.get<Factura[]>('http://localhost:3000/factura')
+    this.httpClient.get<Factura[]>('http://localhost:3000/facturas')
     .subscribe(
       (data) => this.listado = data.sort((a, b) => a.fecha.localeCompare(b.fecha))
     );
@@ -21,20 +21,20 @@ export class FactRepoService {
   }
 
   getById(id: number) {
-    return this.httpClient.get<Factura>(`http://localhost:3000/factura/${id}`);
+    return this.httpClient.get<Factura>(`http://localhost:3000/facturas/${id}`);
   }
 
   agregar(n: Factura) {
-    return this.httpClient.post('http://localhost:3000/factura', n );
+    return this.httpClient.post('http://localhost:3000/facturas', n );
   }
 
   borrar(id: number) {
     if (confirm('Desea eliminar la factura?')) {
-      return this.httpClient.delete(`http://localhost:3000/factura/${id}`);
+      return this.httpClient.delete(`http://localhost:3000/facturas/${id}`);
     }
   }
 
   actualizar(nn: Factura) {
-    return this.httpClient.put(`http://localhost:3000/factura/${nn.id}`, nn);
+    return this.httpClient.put(`http://localhost:3000/facturas/${nn.id}`, nn);
   }
 }

@@ -26,7 +26,7 @@
         <td style="text-align: center;">{{ dat.numero }}</td>
         <td style="text-align: center;">
           <div *ngFor="let cl of formulario.clienteRepoService.listado">
-            <span *ngIf="cl.id == dat.clienteId">{{ cl.nombre }}</span>
+            <span *ngIf="cl.id == dat.clienteId">{{ cl.nombre }}</span> 
           </div>
         </td>
         <td style="text-align: center;">{{ dat.total }}</td>
